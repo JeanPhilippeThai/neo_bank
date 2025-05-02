@@ -1,0 +1,45 @@
+models:
+  - name: wh_users
+    columns:
+      - name: dim_user_id
+        tests:
+          - not_null
+          - unique
+  
+  - name: wh_notifications
+    columns:
+      - name: dim_user_id
+        tests:
+          - relationships:
+              to: ref('wh_users')
+              field: dim_user_id
+              severity: warn
+
+  - name: wh_transactions
+    columns:
+      - name: dim_transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: dim_user_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('wh_users')
+              field: dim_user_id
+              severity: warn
+
+  - name: wh_users_devices
+    columns:
+      - name: dim_user_id
+        tests:
+          - unique
+          - relationships:
+              to: ref('wh_users')
+              field: dim_user_id
+              severity: warn
+      - name: dim_os
+        tests:
+          - accepted_values:
+              values: ['Apple', 'Android']
+  

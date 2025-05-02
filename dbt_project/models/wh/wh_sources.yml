@@ -1,0 +1,101 @@
+version: 2
+
+sources:
+  - name: bigquery_dataset
+    database: test-project-457508
+    schema: neo_bank
+    tables:
+      - name: devices
+        description: Table des OS de chaque utilisateur 
+        columns:
+          - name: string_field_0
+            description: string corresponding to the phone's os
+          - name: string_field_1
+            description: string uniquely identifying the user
+            tests:
+              - not_null
+      
+      - name: users
+        description: table des dimensions des utilisateurs
+        columns:
+          - name: user_id
+            description: string uniquely identifying the user
+            tests:
+              - not_null
+              - unique
+          - name: birth_year
+            description: integer corresponding to the user’s birth year
+          - name: country
+            description: two letter string corresponding to the user’s country of residence
+          - name: city
+            description: two string corresponding to the user’s city of residence
+          - name: created_date
+            description: datetime corresponding to the user’s created date
+          - name: user_settings_crypto_unlocked
+            description: integer indicating if the user has unlocked the crypto currencies in the app
+          - name: plan
+            description: string indicating on which plan the user is on
+          - name: attributes_notifications_marketing_push
+            description: float indicating if the user has accepted to receive marketing push notifications
+          - name: attributes_notifications_marketing_email
+            description: float indicating if the user has accepted to receive marketing email notifications
+          - name: num_contacts
+            description: integer corresponding to the number of contacts the user has on neo bank
+          - name: num_referrals
+            description: integer corresponding to the number of users referred by the selected user
+          - name: num_successful_referrals
+            description: |
+              integer corresponding to the number of users successfully referred by the selected user 
+              (successfully means users who have actually installed the app and are able to use the product)
+
+      - name: notifications
+        description: table des notifications qu'un utilisateur a recu
+        columns:
+          - name: reason
+            description: string indicating the purpose of the notification
+          - name: channel
+            description: string indicating how the user has been notified
+          - name: status
+            description: string indicating the status of the notification
+          - name: user_id
+            description: string uniquely identifying the user
+            tests:
+              - not_null
+          - name: created_date
+            description: datetime indicating when the notification has been sent
+
+      - name: transactions
+        description: table des faits des transactions qu'un utilisateur a fait
+        columns:
+          - name: transaction_id
+            description: string uniquely identifying the transaction
+            tests:
+              - not_null
+              - unique
+          - name: transactions_type
+            description: string indicating the type of the transaction
+          - name: transactions_currency
+            description: string indicating the currency of the transaction
+          - name: amount_usd
+            description: float corresponding to the transaction amount in USD
+          - name: transactions_state
+            description: |
+              string indicating the state of a transaction COMPLETED - the transaction was completed and the user’s balance was changed 
+              DECLINED/FAILED - the transaction was declined for some reason, usually pertains to insufficient balance 
+              REVERTED - the associated transaction was completed first but was then rolled back later in time potentially due to customer reaching out to neo bank
+          - name: ea_cardholderpresence
+            description: string indicating if the card holder was present when the transaction happened
+          - name: ea_merchant_mcc
+            description: float corresponding to the Merchant Category Code (MCC)
+          - name: ea_merchant_city
+            description: string corresponding to the merchant’s city
+          - name: ea_merchant_country
+            description: string corresponding to the merchant’s country
+          - name: direction
+            description: string indicating the direction of the transaction
+          - name: user_id
+            description: string uniquely identifying the user
+            tests:
+              - not_null
+          - name: created_date
+            description: datetime corresponding to the transaction’s created date
