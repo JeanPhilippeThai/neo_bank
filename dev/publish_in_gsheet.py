@@ -1,7 +1,7 @@
 import pandas as pd
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from datetime import date
+from datetime import datetime
 
 def publish_in_gsheet(country_info):
     ## ACCES GOOGLE DRIVE
@@ -28,8 +28,8 @@ def publish_in_gsheet(country_info):
     ## MAJ DE LA DATE DE DERNIERE MAJ
     sheet_date = spreadsheet.get_worksheet(1)
 
-    aujourdhui = date.today()
-    aujourdhui_str = aujourdhui.strftime('%Y-%m-%d')  # format 'YYYY-MM-DD'
+    aujourdhui = datetime.now()
+    aujourdhui_str = aujourdhui.strftime('%Y-%m-%d %H:%M')
     date_df = pd.DataFrame({'derniere_maj': [aujourdhui_str]})
     today_date = date_df.values.tolist()
 
