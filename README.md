@@ -1,4 +1,4 @@
-![Diagramme sans nom drawio](https://github.com/user-attachments/assets/e4c15486-51a7-4c6b-8646-8259b60a55fe)# Transformation et analyse de transactions bancaires
+# Transformation et analyse de transactions bancaires
 **Stack: Python, Bigquery SQL, Bigquery, DBT, Airflow, n8n, Census, Google Sheet, Looker Studio, Docker, Ubuntu**
 
 Ce cas concret de base de données de transactions bancaires anonymisées permet de mettre en oeuvre une stack data moderne.
