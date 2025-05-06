@@ -1,8 +1,19 @@
-# Transformation et analyse de transactions bancaires [en cours d'écriture]
+# POC de procecssus ELT et reverse ETL dans un environnement Google [en cours d'écriture]
 **Stack: Python, Bigquery SQL, Bigquery, DBT, Airflow, n8n, Census, Google Sheet, Looker Studio, Docker, Ubuntu**
 
-Ce cas concret de base de données de transactions bancaires anonymisées permet de mettre en oeuvre une stack data moderne.
-**Le but du projet est de proposer un POC de processus ELT et reverse ETL**
+**Le but du projet est de mettre en oeuvre une data stack moderne dans un environnement Google d'entreprise.**
+
+## Résultats principaux
+- Création d'un datawarehouse prêt à fournir des data marts
+- Récupération de données externes via API
+- Mise à disposition de toutes les données (externes et sur cloud) **pour les métiers et le managemenet** via le reverse ETL
+
+
+## Processus complet
+
+![Diagramme sans nom drawio](https://github.com/user-attachments/assets/3e3502bf-378b-47dc-b6eb-ed18776b3488)
+|:--:|
+| *Image 1 - Schéma ELT et reverse ETL* |
 
 Les données d'origine se trouvent directement sur BigQuery.
 Les transformations sont gérées par DBT vers Bigquery (dossier "dbt_project/wh" dans le repo).
@@ -16,7 +27,10 @@ Il est possible d'envoyer ces données vers un CRM, le cloud, une messagerie ou 
 
 La BI se fait sous Looker Studio.
 
-![Diagramme sans nom drawio](https://github.com/user-attachments/assets/3e3502bf-378b-47dc-b6eb-ed18776b3488)
-|:--:|
-| *Image 1 - Schéma ELT et reverse ETL* |
+## Détail des résultats
 
+### Création du datawarehouse (Bigquery, SQL, DBT, airflow)
+
+### Récupération des données externes (Python, Google Sheet, n8n) 
+
+### Mise à disposition des données pour les métiers et le management (census, docker, Looker Studio, Google Sheet)
