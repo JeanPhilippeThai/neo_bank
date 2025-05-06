@@ -1,4 +1,4 @@
-# Transformation et analyse de transactions bancaires
+# Transformation et analyse de transactions bancaires [en cours d'écriture]
 **Stack: Python, Bigquery SQL, Bigquery, DBT, Airflow, n8n, Census, Google Sheet, Looker Studio, Docker, Ubuntu**
 
 Ce cas concret de base de données de transactions bancaires anonymisées permet de mettre en oeuvre une stack data moderne.
