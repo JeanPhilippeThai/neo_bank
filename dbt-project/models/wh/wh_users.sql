@@ -22,7 +22,7 @@ SELECT distinct
   END AS dim_city,
 
   date(created_date) as dim_creation_date,
-  user_settings_crypto_unlocked as fct_crypto_unlocked,
+  user_settings_crypto_unlocked as dim_crypto_unlocked,
   plan as dim_plan,
   cast(attributes_notifications_marketing_email as int) as dim_notifications_marketing_email,
   cast(attributes_notifications_marketing_push as int) as dim_notifications_marketing_push,

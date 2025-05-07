@@ -27,3 +27,5 @@ models:
     # Config indicated by + and applies to all files under models/example/
     wh:
       +materialized: table
+    int:
+      +materialized: view
