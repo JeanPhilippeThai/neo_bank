@@ -11,7 +11,7 @@
 
 ## Processus complet
 
-![Diagramme sans nom drawio](https://github.com/user-attachments/assets/3e3502bf-378b-47dc-b6eb-ed18776b3488)
+![Diagramme sans nom drawio](https://github.com/user-attachments/assets/e27e4259-d48b-4e16-8bfa-f1f02e2f1ab2)
 |:--:|
 | *Image 1 - Schéma ELT et reverse ETL* |
 
@@ -27,10 +27,18 @@ Il est possible d'envoyer ces données vers un CRM, le cloud, une messagerie ou 
 
 La BI se fait sous Looker Studio.
 
-## Détail des résultats
+## Architecture et choix techniques
 
-### Création du datawarehouse (Bigquery, SQL, DBT, airflow)
+Partie Cloud:
+- Datawarehouse: Bigquery pour son utilisation intuitive
+- Transformations: SQL et DBT fonctionnent très bien avec Bigquery en plus de fournir un suivi clair du code via Github.
+- Orchecstration: Airflow
 
-### Récupération des données externes (Python, Google Sheet, n8n) 
+Extraction des données externes:
+- Appels API: Python
+- Stockage des données: Google sheet pour le défi technique, Bigquery serait sinon plus pertinent à mon avis pour un cas d'utilisation réel
+- Interaction avec les utilisateurs: n8n qui permet d'envoyer des notifications 
 
-### Mise à disposition des données pour les métiers et le management (census, docker, Looker Studio, Google Sheet)
+Reverse ETL et activation des données
+- Census pour facilité le renvoi des données vers Google Sheet, qui aurait pu être également un CRM, Google Ads etc
+- Looker Studio pour des tableaux BI destinés aux métiers
