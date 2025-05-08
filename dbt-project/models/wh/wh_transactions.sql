@@ -1,9 +1,9 @@
 SELECT distinct
-  REGEXP_EXTRACT(transaction_id, r'(\d+)$') as dim_transaction_id,
-  REGEXP_EXTRACT(user_id, r'(\d+)$') as dim_user_id,
+  cast(REGEXP_EXTRACT(transaction_id, r'(\d+)$') as int) as dim_transaction_id,
+  cast(REGEXP_EXTRACT(user_id, r'(\d+)$') as int) as dim_user_id,
   transactions_type as fct_transactions_type,
   transactions_currency as fct_transactions_currency,
-  amount_usd as fct_amount_usd,
+  cast(amount_usd as int) as fct_amount_usd,
   transactions_state as fct_transactions_state,
 
   -- ea_cardholderpresence contient des valeurs null et ~5k 'UNKNOWN' sur 2.7M lignes
@@ -29,7 +29,7 @@ SELECT distinct
 
   direction as fct_direction,
   date(created_date) as fct_date,
-  extract(hour from created_date) as fct_hour
+  cast(extract(hour from created_date) as int) as fct_hour
 
 FROM {{ source('bigquery_dataset', 'transactions') }}
 where

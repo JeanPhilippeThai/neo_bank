@@ -1,3 +1,8 @@
+-- Aggregation des notifications que chaque utilisateur a reçu
+-- Mois par mois
+
+-- Inutile pour l'instant
+
 with channel as(
   SELECT
     n.dim_user_id,

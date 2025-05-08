@@ -1,6 +1,6 @@
 SELECT distinct
-  REGEXP_EXTRACT(user_id, r'(\d+)$') as dim_user_id,
-  birth_year as dim_birth_year,
+  cast(REGEXP_EXTRACT(user_id, r'(\d+)$') as int) as dim_user_id,
+  cast(birth_year as int) as dim_birth_year,
   country as dim_country,
 
   CASE
