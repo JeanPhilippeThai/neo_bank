@@ -1,29 +1,31 @@
-with rn as(
+-- On utilise mart_user_is_active qui est plus rapide et moins couteux en mémoire
+
+with cte as(
+  SELECT 
+    *,
+    row_number() over (partition by dim_user_id order by starting_date) as rn
+  FROM {{ ref('mart_user_is_active') }}
+),
+days_diff as(
   select
     dim_user_id,
-    dim_transaction_id,
-    fct_date,
-    row_number() over (partition by dim_user_id order by fct_date asc) as rn_transaction
-  from {{ ref('wh_transactions')}}
-),
-first_transaction as(
-  select
-    rn.dim_user_id as dim_user_id,
-    date_diff(fct_date, dim_creation_date, day) as days_since_creation,
-    extract(year from dim_creation_date) as user_cohort_year,
-    extract(month from dim_creation_date) as user_cohort_month
-  from rn
-  join {{ ref('wh_users')}} u
-    on rn.dim_user_id = u.dim_user_id
-  where rn_transaction = 1
+    extract(year from starting_date) as year_signup,
+    extract(month from starting_date) as month_signup,
+    date_diff(ending_date, starting_date, day) as days_since_1st_transaction
+  from cte
+  where 
+    rn = 1
+    and ending_date is not null
 )
 select
-  user_cohort_year,
-  user_cohort_month,
-  count(dim_user_id) as cnt_users,
-  round(avg(first_transaction.days_since_creation), 0) as avg_days_since_creation
-from first_transaction
+  year_signup,
+  month_signup,
+  round(avg(days_since_1st_transaction), 0) as avg_days_since_1st_transaction,
+  count(dim_user_id) as cnt_users
+from days_diff
 group by
-  user_cohort_year,
-  user_cohort_month
-order by user_cohort_year, user_cohort_month
+  year_signup,
+  month_signup
+order by
+  year_signup,
+  month_signup

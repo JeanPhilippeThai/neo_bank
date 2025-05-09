@@ -31,3 +31,8 @@ models:
       +materialized: view
     mart:
       +materialized: table
+
+vars:
+  DB_STARTING_DATE: '2018-01-01'
+  DB_INFINITE_DATE: '2099-01-01'
+  DB_TODAYS_DATE: '2019-05-16'
