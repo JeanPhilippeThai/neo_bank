@@ -1,5 +1,5 @@
 # POC de procecssus ELT et reverse ETL dans un environnement Google [en cours d'écriture]
-**Stack: Python, Bigquery SQL, Bigquery, DBT, Airflow, n8n, Census, Google Sheet, Looker Studio, Docker, Ubuntu**
+**Stack: Python, Bigquery SQL, Bigquery, DBT, Airflow, n8n, Census, Google Sheet, PowerBI, Docker, Ubuntu**
 
 **Le but du projet est de mettre en oeuvre une data stack moderne dans un environnement Google d'entreprise.**
 
@@ -11,7 +11,7 @@
 
 ## Processus complet
 
-![Diagramme sans nom drawio](https://github.com/user-attachments/assets/394dc4cb-34f7-4976-be4a-9eea4209aea7)
+![Diagramme sans nom drawio](https://github.com/user-attachments/assets/63158076-cf54-456b-abc6-d3cb00ba2969)
 |:--:|
 | *Image 1 - Schéma ELT et reverse ETL* |
 
