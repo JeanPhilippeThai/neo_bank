@@ -11,7 +11,7 @@
 
 ## Processus complet
 
-![Diagramme sans nom drawio](https://github.com/user-attachments/assets/e27e4259-d48b-4e16-8bfa-f1f02e2f1ab2)
+![Diagramme sans nom drawio](https://github.com/user-attachments/assets/394dc4cb-34f7-4976-be4a-9eea4209aea7)
 |:--:|
 | *Image 1 - Schéma ELT et reverse ETL* |
 
