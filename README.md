@@ -27,7 +27,7 @@ Il est possible d'envoyer ces données vers un CRM, le cloud, une messagerie ou 
 
 La BI se fait sous PowerBI.
 
-[users_bi.pdf](https://github.com/user-attachments/files/20160019/users_bi.pdf)
+![powerbi](https://github.com/user-attachments/assets/fc1c9d96-ed31-4093-8a09-12960ea78c41)
 |:--:|
 | *Image 2 - Graphiques PowerBI* |
 
