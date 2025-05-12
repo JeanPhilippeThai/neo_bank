@@ -25,7 +25,11 @@ Census permet le reverse ETL.
 Il lit les données de BigQuery et Google Sheet les renvoyer sur Google Sheet pour les métiers théoriques consommateurs de la donnée.
 Il est possible d'envoyer ces données vers un CRM, le cloud, une messagerie ou autre.
 
-La BI se fait sous Looker Studio.
+La BI se fait sous PowerBI.
+
+[users_bi.pdf](https://github.com/user-attachments/files/20160019/users_bi.pdf)
+|:--:|
+| *Image 2 - Graphiques PowerBI* |
 
 ## Architecture et choix techniques
 
@@ -41,4 +45,4 @@ Extraction des données externes:
 
 Reverse ETL et activation des données
 - Census pour facilité le renvoi des données vers Google Sheet, qui aurait pu être également un CRM, Google Ads etc
-- Looker Studio pour des tableaux BI destinés aux métiers
+- PowerBI pour des tableaux BI destinés aux métiers
