@@ -57,4 +57,4 @@ select
 from active_start_of_month a
 join active_end_of_month b on a.month = b.month
 left join new_users_month n on a.month = n.month
-order by a.month;
+order by a.month

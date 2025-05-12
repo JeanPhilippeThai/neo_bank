@@ -2,7 +2,7 @@
 with premium_users as(
   select
     m.*
-  from {{ ref(`neo_bank.mart_user_is_active`) }} m
+  from {{ ref('mart_user_is_active') }} m
   join {{ ref('wh_users') }} u
     on m.dim_user_id = u.dim_user_id
   where u.dim_plan != 'STANDARD'
@@ -66,4 +66,4 @@ select
 from active_start_of_month a
 join active_end_of_month b on a.month = b.month
 left join new_users_month n on a.month = n.month
-order by a.month;
+order by a.month
