@@ -11,11 +11,11 @@
 -- DETECTION DE PETITE PERIODE DACTIVITE OU DINACTIVITE ENTRE DEUX TRANSACTIONS SEULEMENT 
 -- -------------------------------
 with transactions as(
-  SELECT distinct
+  select distinct
     dim_user_id,
     fct_date,
     dense_rank() over (partition by dim_user_id order by fct_date) as rn_date
-  FROM {{ ref('wh_transactions') }}
+  from {{ ref('wh_transactions') }}
 ),
 previous_and_actual_date as(
   select
@@ -28,11 +28,11 @@ previous_and_actual_date as(
 ),
 -- On ajoute les utilisateurs qui ont crée leurs compte sans jamais avoir fait de transaction
 add_new_inactive_client as(
-  SELECT
+  select
     u.dim_user_id,
     u.dim_creation_date as fct_previous_transaction_date,
     null as fct_transaction_date
-  FROM {{ ref('wh_users')}} u
+  from {{ ref('wh_users')}} u
   left join {{ ref('wh_transactions') }} t
     on u.dim_user_id = t.dim_user_id
   where t.dim_transaction_id is null

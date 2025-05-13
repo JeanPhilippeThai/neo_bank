@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: bigquery_dataset
+  - name: raw_bigquery_dataset
     database: test-project-457508
     schema: neo_bank
     tables:

@@ -30,4 +30,4 @@ SELECT distinct
   cast(num_referrals as int) as scd_num_referrals,
   cast(num_successful_referrals as int) as scd_num_successful_referrals
 
-FROM {{ source('bigquery_dataset', 'users') }}
+FROM {{ source('raw_bigquery_dataset', 'users') }}

@@ -31,7 +31,7 @@ SELECT distinct
   date(created_date) as fct_date,
   cast(extract(hour from created_date) as int) as fct_hour
 
-FROM {{ source('bigquery_dataset', 'transactions') }}
+FROM {{ source('raw_bigquery_dataset', 'transactions') }}
 where
   REGEXP_EXTRACT(transaction_id, r'(\d+)$') is not null
   and REGEXP_EXTRACT(user_id, r'(\d+)$') is not null
