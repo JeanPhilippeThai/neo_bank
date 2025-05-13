@@ -8,6 +8,7 @@ La difficulté est de partir de la table des faits des transactions pour évalue
 
 ## Résultats principaux
 - Modélisation de l'activité des utilisateurs sous la forme "user_id, is_activte, starting_date, ending_date" (dbt-project/mart/mart_user_is_active)
+- Tableau de bord de KPIs utilisateurs
 - Mise à disposition de toutes les données (externes et sur cloud) **pour les métiers et le managemenet** via le reverse ETL
 
 
@@ -16,6 +17,10 @@ La difficulté est de partir de la table des faits des transactions pour évalue
 ![Diagramme sans nom drawio](https://github.com/user-attachments/assets/63158076-cf54-456b-abc6-d3cb00ba2969)
 |:--:|
 | *Image 1 - Schéma ELT et reverse ETL* |
+
+![powerbi](https://github.com/user-attachments/assets/fc1c9d96-ed31-4093-8a09-12960ea78c41)
+|:--:|
+| *Image 2 - Graphiques PowerBI* |
 
 Les données d'origine se trouvent directement sur BigQuery.
 Les transformations sont gérées par DBT vers Bigquery (dossier "dbt_project/wh" dans le repo).
@@ -28,10 +33,6 @@ Il lit les données de BigQuery et Google Sheet les renvoyer sur Google Sheet po
 Il est possible d'envoyer ces données vers un CRM, le cloud, une messagerie ou autre.
 
 La BI se fait sous PowerBI.
-
-![powerbi](https://github.com/user-attachments/assets/fc1c9d96-ed31-4093-8a09-12960ea78c41)
-|:--:|
-| *Image 2 - Graphiques PowerBI* |
 
 ## Architecture et choix techniques
 
