@@ -1,0 +1,32 @@
+models:
+  - name: int_country_noholder_prct
+    columns:
+      - name: fct_year
+        tests:
+          - not_null
+      - name: fct_month
+        tests:
+          - not_null
+      - name: fct_transactions_type
+        tests:
+          - accepted_values:
+              values: ['ATM', 'CARD_PAYMENT']
+  
+  - name: int_notifications
+    columns:
+      - name: dim_user_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('wh_users')
+              field: dim_user_id
+              severity: warn
+
+  - name: int_transactions_monthly
+    columns:
+      - name: fct_year
+        tests:
+          - not_null
+      - name: fct_month
+        tests:
+          - not_null

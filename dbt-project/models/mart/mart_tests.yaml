@@ -1,0 +1,63 @@
+models:
+  - name: mart_monthly_churn_rate
+    columns:
+      - name: month
+        tests:
+          - not_null
+
+  - name: mart_monthly_premium_churn_rate
+    columns:
+      - name: month
+        tests:
+          - not_null
+
+  - name: mart_noholder_bycountry
+    columns:
+      - name: fct_year
+        tests:
+          - not_null
+      - name: fct_month
+        tests:
+          - not_null
+    
+  - name: mart_noholder_global
+    columns:
+      - name: fct_year
+        tests:
+          - not_null
+      - name: fct_month
+        tests:
+          - not_null
+
+  - name: mart_time_to_1st_transaction
+    columns:
+      - name: year_signup
+        tests:
+          - not_null
+      - name: month_signup
+        tests:
+          - not_null
+
+  - name: mart_transactions_global
+    columns:
+      - name: fct_year
+        tests:
+          - not_null
+      - name: fct_month
+        tests:
+          - not_null
+  
+  - name: mart_transactions_monthly
+    columns:
+      - name: fct_year
+        tests:
+          - not_null
+      - name: fct_month
+        tests:
+          - not_null
+
+  - name: mart_user_is_active
+    columns:
+      - name: dim_user_id
+        tests:
+          - not_null
