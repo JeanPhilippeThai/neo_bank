@@ -1,5 +1,5 @@
 # POC de procecssus ELT et reverse ETL dans un environnement Google
-**Stack: Python, Bigquery SQL, Bigquery, DBT, Airflow, n8n, Census, Google Sheet, PowerBI, Docker, Ubuntu**
+**Stack: Python, SQL, Bigquery, DBT core, Airflow, n8n, Census, Google Sheet, PowerBI, Docker, Ubuntu**
 
 Revolut est une banque en ligne qui souhaite suivre la rétention, le churn, l'activité de ses clients.
 La difficulté est de partir de la table des faits des transactions pour évaluer ces KPIs.
