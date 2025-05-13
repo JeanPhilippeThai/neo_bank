@@ -7,7 +7,7 @@ La difficulté est de partir de la table des faits des transactions pour évalue
 **Le but du projet est de mettre en oeuvre une data stack moderne dans un environnement Google d'entreprise.**
 
 ## Résultats principaux
-- Modélisation de l'activité des utilisateurs sous la forme "user_id, is_activte, starting_date, ending_date" (dbt-project/mart/mart_monthly_churn_rate)
+- Modélisation de l'activité des utilisateurs sous la forme "user_id, is_activte, starting_date, ending_date" (dbt-project/mart/mart_user_is_active)
 - Mise à disposition de toutes les données (externes et sur cloud) **pour les métiers et le managemenet** via le reverse ETL
 
 
