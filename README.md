@@ -1,11 +1,13 @@
-# POC de procecssus ELT et reverse ETL dans un environnement Google [en cours d'écriture]
+# POC de procecssus ELT et reverse ETL dans un environnement Google
 **Stack: Python, Bigquery SQL, Bigquery, DBT, Airflow, n8n, Census, Google Sheet, PowerBI, Docker, Ubuntu**
+
+Revolut est une banque en ligne qui souhaite suivre la rétention, le churn, l'activité de ses clients.
+La difficulté est de partir de la table des faits des transactions pour évaluer ces KPIs.
 
 **Le but du projet est de mettre en oeuvre une data stack moderne dans un environnement Google d'entreprise.**
 
 ## Résultats principaux
-- Création d'un datawarehouse prêt à fournir des data marts
-- Récupération de données externes via API
+- Modélisation de l'activité des utilisateurs sous la forme "user_id, is_activte, starting_date, ending_date" (dbt-project/mart/mart_monthly_churn_rate)
 - Mise à disposition de toutes les données (externes et sur cloud) **pour les métiers et le managemenet** via le reverse ETL
 
 
